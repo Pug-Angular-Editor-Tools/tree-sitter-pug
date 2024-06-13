@@ -1,10 +1,10 @@
-============
+================================================================================
 Angular attribute
-============
+================================================================================
 
 some-tag([attr]='hello')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -12,16 +12,16 @@ some-tag([attr]='hello')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))
 
-============
+================================================================================
 Angular output
-============
+================================================================================
 
 some-tag((attr)='hello')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -29,16 +29,16 @@ some-tag((attr)='hello')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))
 
-============
-Angular output javascript
-============
+================================================================================
+Angular output string
+================================================================================
 
 some-tag((attr)='console.log("test")')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -46,16 +46,16 @@ some-tag((attr)='console.log("test")')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))
 
-============
+================================================================================
 Angular banana box
-============
+================================================================================
 
 some-tag([(attr)]='hello')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -63,16 +63,16 @@ some-tag([(attr)]='hello')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))
 
-============
+================================================================================
 Angular directive
-============
+================================================================================
 
 some-tag(*ngIf='enabled')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -80,18 +80,18 @@ some-tag(*ngIf='enabled')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))
 
-============
+================================================================================
 Angular templates
-============
+================================================================================
 
 ng-template([ngTemplateOutlet]="tplTemplate", [ngTemplateOutletContext]="{$implicit: 'name'}")
 some-tag(#tplTemplate, let-name)
   span {{name}}
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -99,12 +99,12 @@ some-tag(#tplTemplate, let-name)
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript)))
+        (quoted_attribute_value
+          (attribute_value)))
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript)))))
+        (quoted_attribute_value
+          (attribute_value)))))
   (tag
     (tag_name)
     (attributes
@@ -115,15 +115,15 @@ some-tag(#tplTemplate, let-name)
     (children
       (tag
         (tag_name)
-        (javascript)))))
+        (content)))))
 
-============
+================================================================================
 Angular attributes with dots in their names
-============
+================================================================================
 
 some-tag([style.padding-right]='true')
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (tag
@@ -131,5 +131,5 @@ some-tag([style.padding-right]='true')
     (attributes
       (attribute
         (attribute_name)
-        (quoted_javascript
-          (javascript))))))
+        (quoted_attribute_value
+          (attribute_value))))))

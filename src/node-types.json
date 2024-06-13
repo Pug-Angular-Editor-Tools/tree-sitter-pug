@@ -22,10 +22,6 @@
         {
           "type": "quoted_attribute_value",
           "named": true
-        },
-        {
-          "type": "quoted_javascript",
-          "named": true
         }
       ]
     }
@@ -46,28 +42,9 @@
         {
           "type": "attribute",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "block_append",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block_name",
-          "named": true
         },
         {
-          "type": "children",
-          "named": true
-        },
-        {
-          "type": "keyword",
+          "type": "javascript",
           "named": true
         }
       ]
@@ -97,7 +74,7 @@
     }
   },
   {
-    "type": "block_prepend",
+    "type": "block_use",
     "named": true,
     "fields": {},
     "children": {
@@ -170,15 +147,11 @@
       "required": false,
       "types": [
         {
-          "type": "block_append",
-          "named": true
-        },
-        {
           "type": "block_definition",
           "named": true
         },
         {
-          "type": "block_prepend",
+          "type": "block_use",
           "named": true
         },
         {
@@ -222,7 +195,11 @@
           "named": true
         },
         {
-          "type": "javascript",
+          "type": "mixin_definition",
+          "named": true
+        },
+        {
+          "type": "mixin_use",
           "named": true
         },
         {
@@ -285,11 +262,19 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
+          "type": "escaped_string_interpolation",
+          "named": true
+        },
+        {
           "type": "filter",
+          "named": true
+        },
+        {
+          "type": "tag_interpolation",
           "named": true
         }
       ]
@@ -361,6 +346,21 @@
     }
   },
   {
+    "type": "escaped_string_interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "interpolation_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "extends",
     "named": true,
     "fields": {},
@@ -420,6 +420,45 @@
         },
         {
           "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interpolation_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "buffered_code",
+          "named": true
+        },
+        {
+          "type": "filter",
+          "named": true
+        },
+        {
+          "type": "mixin_use",
+          "named": true
+        },
+        {
+          "type": "pipe",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "unbuffered_code",
+          "named": true
+        },
+        {
+          "type": "unescaped_buffered_code",
           "named": true
         }
       ]
@@ -511,11 +550,30 @@
       "required": true,
       "types": [
         {
-          "type": "attribute",
+          "type": "attributes",
           "named": true
         },
         {
           "type": "mixin_name",
+          "named": true
+        },
+        {
+          "type": "mixin_use_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mixin_use_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
           "named": true
         }
       ]
@@ -526,15 +584,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "content",
-          "named": true
-        },
-        {
-          "type": "javascript",
           "named": true
         }
       ]
@@ -550,21 +604,6 @@
       "types": [
         {
           "type": "attribute_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "quoted_javascript",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "javascript",
           "named": true
         }
       ]
@@ -594,15 +633,11 @@
       "required": false,
       "types": [
         {
-          "type": "block_append",
-          "named": true
-        },
-        {
           "type": "block_definition",
           "named": true
         },
         {
-          "type": "block_prepend",
+          "type": "block_use",
           "named": true
         },
         {
@@ -709,10 +744,6 @@
           "named": true
         },
         {
-          "type": "javascript",
-          "named": true
-        },
-        {
           "type": "self_close_slash",
           "named": true
         },
@@ -726,6 +757,21 @@
         },
         {
           "type": "unescaped_buffered_code",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tag_interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "interpolation_content",
           "named": true
         }
       ]
@@ -788,6 +834,10 @@
         {
           "type": "keyword",
           "named": true
+        },
+        {
+          "type": "quoted_attribute_value",
+          "named": true
         }
       ]
     }
@@ -820,6 +870,10 @@
     "named": false
   },
   {
+    "type": "!",
+    "named": false
+  },
+  {
     "type": "!=",
     "named": false
   },
@@ -832,7 +886,15 @@
     "named": false
   },
   {
+    "type": "#[",
+    "named": false
+  },
+  {
     "type": "#{",
+    "named": false
+  },
+  {
+    "type": "&attributes(",
     "named": false
   },
   {
@@ -864,6 +926,10 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": "//",
     "named": false
   },
@@ -876,7 +942,35 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {
@@ -936,11 +1030,11 @@
     "named": true
   },
   {
-    "type": "{",
+    "type": "text",
     "named": false
   },
   {
-    "type": "{{",
+    "type": "{",
     "named": false
   },
   {
@@ -949,10 +1043,6 @@
   },
   {
     "type": "}",
-    "named": false
-  },
-  {
-    "type": "}}",
     "named": false
   }
 ]
